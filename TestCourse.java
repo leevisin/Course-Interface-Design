@@ -8,7 +8,7 @@
  */
 public class TestCourse {
     public static void main(String[] args) {
-        course c = new course("HIIT",20);
+        Course c = new Course("HIIT",20);
         System.out.println(c.getCourseName());
         System.out.println(c.getCourseTime());
     }

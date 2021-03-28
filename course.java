@@ -1,21 +1,21 @@
 /*
  * @Author: your name
  * @Date: 2021-03-28 17:41:14
- * @LastEditTime: 2021-03-28 17:47:04
+ * @LastEditTime: 2021-03-28 19:54:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Video-Live\course.java
  */
-public class course {
+public class Course {
     private String courseName;
     private int courseTime;
 
-    public course(String courseName, int courseTime){
+    public Course(String courseName, int courseTime){
         setCourseName(courseName);
         setCourseTime(courseTime);
     }
 
-    public course(int courseTime, String courseName){
+    public Course(int courseTime, String courseName){
         setCourseName(courseName);
         setCourseTime(courseTime);
     }
