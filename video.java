@@ -1,28 +1,35 @@
 /*
  * @Author: your name
  * @Date: 2021-03-28 17:26:56
- * @LastEditTime: 2021-03-29 20:33:23
+ * @LastEditTime: 2021-03-29 20:57:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Video-Live\video.java
  */
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.text.*;
 
  public class Video extends JFrame implements ActionListener{
 
      String fileName = "AllCourse.txt";
 
      public Video(){
-        JPanel mainPanel = new JPanel();
-        mainPanel.add(new JLabel("This is will be input search bar"));
+        JPanel coursePanel = new JPanel();
+        JPanel searchPanel = new JPanel();
+
+        JTextField textField = new JTextField(20);
+
+        searchPanel.add(textField);
+
         // Get course information from file
         String fileContents = readFromFile(fileName);
         String[] splitFileContents = fileContents.split(" ");
         int courseNum = splitFileContents.length/2;
-        
+        coursePanel.setLayout(new GridLayout(courseNum,1)); // Set Layout type
         
         // Temp store coure information indepently
         String[] courseName = new String[courseNum];
@@ -36,6 +43,7 @@ import java.io.*;
         // Generate JButton for each course
         for(int i=0; i<courseNum; i++){
             JButton btn = new JButton(courseName[i] + "  "+ courseTime[i] + "mins");
+            btn.setSize(300,400);
             String name = courseName[i];
             btn.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
@@ -43,18 +51,18 @@ import java.io.*;
                     System.out.println("This course name is " + name ); // return is still error.
                 }
             });
-            mainPanel.add(btn);
+            coursePanel.add(btn);
         }
             
         
             
        
-        getContentPane().add(mainPanel);
+        getContentPane().add(coursePanel);
      }
 
-    //  public void actionPerformed(ActionEvent e){
-    //      System.out.println("This button is clicked.");
-    //  }
+     public void actionPerformed(ActionEvent e){
+        //  System.out.println("This button is clicked.");
+     }
 
      public String readFromFile(String filename){
         // Read AllCourse.txt file
@@ -97,4 +105,5 @@ import java.io.*;
         frame.setSize(600, 800);
         frame.setVisible(true);
      }
+     
  }
