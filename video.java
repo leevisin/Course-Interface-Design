@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-28 17:26:56
- * @LastEditTime: 2021-03-29 12:01:34
+ * @LastEditTime: 2021-03-29 20:33:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Video-Live\video.java
@@ -35,14 +35,15 @@ import java.io.*;
 
         // Generate JButton for each course
         for(int i=0; i<courseNum; i++){
-            JButton jb = new JButton(courseName[i]);
-            jb.addActionListener(new ActionListener(){
+            JButton btn = new JButton(courseName[i] + "  "+ courseTime[i] + "mins");
+            String name = courseName[i];
+            btn.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    System.out.println("This button is clicked.");
-                    System.out.println("This course name is " + jb.getName() ); // return is still error.
+                    // System.out.println("This button is clicked.");
+                    System.out.println("This course name is " + name ); // return is still error.
                 }
             });
-            mainPanel.add(jb);
+            mainPanel.add(btn);
         }
             
         
@@ -84,6 +85,8 @@ import java.io.*;
      public void removeVideo(){}
      
      public void clickVideo(){}
+
+     
 
 
      public static void main(String[] args) {
