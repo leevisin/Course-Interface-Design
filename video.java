@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-28 17:26:56
- * @LastEditTime: 2021-03-29 20:57:27
+ * @LastEditTime: 2021-03-29 21:06:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Video-Live\video.java
@@ -20,10 +20,14 @@ import java.text.*;
      public Video(){
         JPanel coursePanel = new JPanel();
         JPanel searchPanel = new JPanel();
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
 
+        // Search Area
         JTextField textField = new JTextField(20);
-
+        JButton searchBtn = new JButton("Search Course");
         searchPanel.add(textField);
+        searchPanel.add(searchBtn);
 
         // Get course information from file
         String fileContents = readFromFile(fileName);
@@ -56,8 +60,8 @@ import java.text.*;
             
         
             
-       
-        getContentPane().add(coursePanel);
+        getContentPane().add("North",searchPanel);
+        getContentPane().add("Center",coursePanel);
      }
 
      public void actionPerformed(ActionEvent e){
@@ -99,7 +103,7 @@ import java.text.*;
 
      public static void main(String[] args) {
         Video frame = new Video();
-        frame.setTitle("Videos V1.0");
+        frame.setTitle("Videos V1.1");
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 800);
