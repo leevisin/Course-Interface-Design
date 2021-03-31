@@ -1,0 +1,4 @@
+HIIT,30
+Yoga,35
+Strength,45
+Speed,60
