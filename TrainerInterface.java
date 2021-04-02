@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-31 21:29:09
- * @LastEditTime: 2021-03-31 21:49:29
+ * @LastEditTime: 2021-04-02 22:38:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Video-Live\TrainerInterface.java
@@ -23,9 +23,12 @@ import java.text.*;
         mainPanel.setLayout(new BorderLayout());
 
         // Title Text Area
-        JLabel titileJLabel = new JLabel("Our Trainers\n Click to Book Trainers");
-        titlePanel.add(titileJLabel);
-
+        JLabel titileJLabel = new JLabel("Below are Our Trainers",JLabel.CENTER);
+        JLabel hintJLabel = new JLabel("Please Click to Book Trainers",JLabel.CENTER);
+        titlePanel.setLayout(new BorderLayout());
+        titlePanel.add("North",titileJLabel);
+        titlePanel.add("Center",hintJLabel);
+        
         // Get course information from file
         String fileContents = readFromFile(fileName);
         String[] splitFileContents = fileContents.split(",");
@@ -43,7 +46,7 @@ import java.text.*;
 
         // Generate JButton for each course
         for(int i=0; i<courseNum; i++){
-            JButton btn = new JButton(courseName[i] + "  "+ courseType[i] + "mins");
+            JButton btn = new JButton("Traier Name: " + courseName[i] + ", Course Type: "+ courseType[i]);
             String trainerName = courseName[i];
             String trainerType = courseType[i];
             btn.setSize(300,400);
