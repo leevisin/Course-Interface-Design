@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-28 20:02:49
- * @LastEditTime: 2021-03-31 21:27:43
+ * @LastEditTime: 2021-04-08 20:54:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Video-Live\AllCourse.java
@@ -13,10 +13,10 @@ public class AllCourse{
     public static void main(String[] args) throws IOException{
 
         AllCourse allVideo = new AllCourse();
-        allVideo.addVideo("HIIT", 30);
-        allVideo.addVideo("Yoga", 35);
-        allVideo.addVideo("Strength", 45);
-        allVideo.addVideo("Speed", 60);
+        allVideo.addVideo("HIIT", 30, "Test1.mp4");
+        allVideo.addVideo("Yoga", 35, "Test2.mp4");
+        allVideo.addVideo("Strength", 45, "Test3.mp4");
+        allVideo.addVideo("Speed", 60, "Test4.mp4");
 
         AllCourse allTrainer = new AllCourse();
         allTrainer.addTrainer("Tom", "Strength");
@@ -30,7 +30,7 @@ public class AllCourse{
             FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
             BufferedWriter writer = new BufferedWriter(fileWriter);
             if(isVideo==true){
-              writer.write(video.getVideoName() + "," + video.getVideoTime() + "\n");
+              writer.write(video.getVideoName() + "," + video.getVideoTime() + "," + video.getVideoPath() + "\n");
             }
             else{
               writer.write(trainer.getTrainerName() + "," + trainer.getTrainerType() + "\n");
@@ -46,9 +46,9 @@ public class AllCourse{
           }
     }
     
-    public void addVideo(String videoName, int videoTime){
+    public void addVideo(String videoName, int videoTime, String filePath){
       String fileName = "AllVideo.txt";
-      Video video = new Video(videoName, videoTime);
+      Video video = new Video(videoName, videoTime, filePath);
       writeToFile(true, video, null, fileName);
     }
 

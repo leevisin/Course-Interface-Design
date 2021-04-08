@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-03-31 21:06:16
- * @LastEditTime: 2021-03-31 21:10:28
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \Video-Live\Trainer.java
- */
 public class Trainer {
     private String trainerName;
     private String trainerType;
