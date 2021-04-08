@@ -1,12 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-03-28 17:26:56
- * @LastEditTime: 2021-04-02 22:20:27
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \Video-Live\video.java
- */
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

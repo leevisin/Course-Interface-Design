@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-03-31 21:29:09
- * @LastEditTime: 2021-04-02 22:38:54
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \Video-Live\TrainerInterface.java
- */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
