@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.io.*;
 import java.text.*;
 
-public class BookInfo extends JFrame implements ActionListener{
+public class BookInfo extends JFrame {
 
     public BookInfo(String trainerName, String trainerType){
         JLabel info = new JLabel("You have booked " + trainerName + "'s " + trainerType + " course successfully!",JLabel.CENTER);
