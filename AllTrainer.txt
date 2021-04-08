@@ -1,3 +1,9 @@
 Tom,Strength
 Jack,Explosive Power
 Ann,Slim
+Tom,Strength
+Jack,Explosive Power
+Ann,Slim
+Tom,Strength
+Jack,Explosive Power
+Ann,Slim
