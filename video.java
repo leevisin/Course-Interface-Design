@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-28 17:41:14
- * @LastEditTime: 2021-04-08 20:44:49
+ * @LastEditTime: 2021-04-08 20:45:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Video-Live\course.java
@@ -17,7 +17,7 @@ public class Video {
         setVideoPath(filePath);
     }
 
-    public Video getVideoName(){
+    public String getVideoName(){
         return videoName;
     }
     public int getVideoTime(){

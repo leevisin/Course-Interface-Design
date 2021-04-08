@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-28 20:02:49
- * @LastEditTime: 2021-04-08 20:41:19
+ * @LastEditTime: 2021-04-08 20:54:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Video-Live\AllCourse.java
@@ -13,10 +13,10 @@ public class AllCourse{
     public static void main(String[] args) throws IOException{
 
         AllCourse allVideo = new AllCourse();
-        allVideo.addVideo("HIIT", 30, "Test1");
-        allVideo.addVideo("Yoga", 35, "Test2");
-        allVideo.addVideo("Strength", 45, "Test3");
-        allVideo.addVideo("Speed", 60, "Test4");
+        allVideo.addVideo("HIIT", 30, "Test1.mp4");
+        allVideo.addVideo("Yoga", 35, "Test2.mp4");
+        allVideo.addVideo("Strength", 45, "Test3.mp4");
+        allVideo.addVideo("Speed", 60, "Test4.mp4");
 
         AllCourse allTrainer = new AllCourse();
         allTrainer.addTrainer("Tom", "Strength");
