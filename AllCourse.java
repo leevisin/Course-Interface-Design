@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-03-28 20:02:49
- * @LastEditTime: 2021-04-08 20:54:54
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \Video-Live\AllCourse.java
- */
 import java.io.*;
 
 public class AllCourse{
