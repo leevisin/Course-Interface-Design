@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-03-28 20:02:49
- * @LastEditTime: 2021-03-29 20:35:26
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \Video-Live\AllCourse.java
- */
 import java.io.*;
 
 //this is a comment
@@ -13,22 +5,30 @@ import java.io.*;
 public class AllCourse{
 
     public static void main(String[] args) throws IOException{
-        String fileName = "AllCourse.txt";
-        Course HIIT = new Course("HIIT", 30);
-        Course Yoga = new Course("Yoga", 30);
-        Course Strength = new Course("Strength", 45);
-        Course Speed = new Course("Speed", 60);
-        writeToFile(HIIT, fileName);
-        writeToFile(Yoga, fileName);
-        writeToFile(Strength, fileName);
-        writeToFile(Speed, fileName);
+
+        AllCourse allVideo = new AllCourse();
+        allVideo.addVideo("HIIT", 30, "Test1.mp4");
+        allVideo.addVideo("Yoga", 35, "Test2.mp4");
+        allVideo.addVideo("Strength", 45, "Test3.mp4");
+        allVideo.addVideo("Speed", 60, "Test4.mp4");
+
+        AllCourse allTrainer = new AllCourse();
+        allTrainer.addTrainer("Tom", "Strength");
+        allTrainer.addTrainer("Jack", "Explosive Power");
+        allTrainer.addTrainer("Ann", "Slim");
+
     }
    
-    public static void writeToFile(Course course, String filename){
+    public void writeToFile(boolean isVideo, Video video, Trainer trainer, String filename){
         try{
             FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
             BufferedWriter writer = new BufferedWriter(fileWriter);
-            writer.write(course.getCourseName() + " " + course.getCourseTime() + "\n");
+            if(isVideo==true){
+              writer.write(video.getVideoName() + "," + video.getVideoTime() + "," + video.getVideoPath() + "\n");
+            }
+            else{
+              writer.write(trainer.getTrainerName() + "," + trainer.getTrainerType() + "\n");
+            }
             writer.close();
             fileWriter.close();
           }
@@ -38,5 +38,17 @@ public class AllCourse{
           catch (IOException e) {
             e.printStackTrace();
           }
+    }
+    
+    public void addVideo(String videoName, int videoTime, String filePath){
+      String fileName = "AllVideo.txt";
+      Video video = new Video(videoName, videoTime, filePath);
+      writeToFile(true, video, null, fileName);
+    }
+
+    public void addTrainer(String trainerName, String trainerType){
+      String fileName = "AllTrainer.txt";
+      Trainer trainer = new Trainer(trainerName, trainerType);
+      writeToFile(false, null, trainer, fileName);
     }
 }

@@ -1,66 +1,61 @@
-/*
- * @Author: your name
- * @Date: 2021-03-28 17:26:56
- * @LastEditTime: 2021-03-29 21:06:21
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \Video-Live\video.java
- */
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.text.*;
 
- public class Video extends JFrame implements ActionListener{
+ public class TrainerInterface extends JFrame implements ActionListener{
 
-     String fileName = "AllCourse.txt";
+     String fileName = "AllTrainer.txt";
 
-     public Video(){
+     public TrainerInterface(){
         JPanel coursePanel = new JPanel();
-        JPanel searchPanel = new JPanel();
+        JPanel titlePanel = new JPanel();
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
-        // Search Area
-        JTextField textField = new JTextField(20);
-        JButton searchBtn = new JButton("Search Course");
-        searchPanel.add(textField);
-        searchPanel.add(searchBtn);
-
+        // Title Text Area
+        JLabel titileJLabel = new JLabel("Below are Our Trainers",JLabel.CENTER);
+        JLabel hintJLabel = new JLabel("Please Click to Book Trainers",JLabel.CENTER);
+        titlePanel.setLayout(new BorderLayout());
+        titlePanel.add("North",titileJLabel);
+        titlePanel.add("Center",hintJLabel);
+        
         // Get course information from file
         String fileContents = readFromFile(fileName);
-        String[] splitFileContents = fileContents.split(" ");
+        String[] splitFileContents = fileContents.split(",");
         int courseNum = splitFileContents.length/2;
         coursePanel.setLayout(new GridLayout(courseNum,1)); // Set Layout type
         
         // Temp store coure information indepently
         String[] courseName = new String[courseNum];
-        int[] courseTime = new int[courseNum];
+        String[] courseType = new String[courseNum];
 
         for(int i=0,j=0,k=0; i<splitFileContents.length; i++){
             if(i%2==0){ courseName[j] = splitFileContents[i]; j++; }
-            else {courseTime[k] = Integer.parseInt(splitFileContents[i]); k++; }
+            else {courseType[k] = splitFileContents[i]; k++; }
         }
 
         // Generate JButton for each course
         for(int i=0; i<courseNum; i++){
-            JButton btn = new JButton(courseName[i] + "  "+ courseTime[i] + "mins");
+            JButton btn = new JButton("Traier Name: " + courseName[i] + ", Course Type: "+ courseType[i]);
+            String trainerName = courseName[i];
+            String trainerType = courseType[i];
             btn.setSize(300,400);
-            String name = courseName[i];
             btn.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     // System.out.println("This button is clicked.");
-                    System.out.println("This course name is " + name ); // return is still error.
+                    BookInfo bi = new BookInfo(trainerName, trainerType);
+                    bi.setTitle("Book Infomation");
+                    bi.pack();
+                    bi.setSize(600, 800);
+                    bi.setVisible(true);
                 }
             });
             coursePanel.add(btn);
         }
             
-        
-            
-        getContentPane().add("North",searchPanel);
+        getContentPane().add("North",titlePanel);
         getContentPane().add("Center",coursePanel);
      }
 
@@ -76,7 +71,7 @@ import java.text.*;
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String oneLine = bufferedReader.readLine();
             while(oneLine != null){
-                contents += oneLine + " ";
+                contents += oneLine + ",";
                 oneLine = bufferedReader.readLine();
             }
             bufferedReader.close();
@@ -90,20 +85,18 @@ import java.text.*;
         return null; // When error occurs.
      }
      
-     public void searchVideo(){}
+     public void searchTrainer(){}
 
-     public void addVideo(){}
+     public void addTrainer(){}
 
-     public void removeVideo(){}
-     
-     public void clickVideo(){}
+     public void removeTrainer(){}
 
      
 
 
      public static void main(String[] args) {
-        Video frame = new Video();
-        frame.setTitle("Videos V1.1");
+        TrainerInterface frame = new TrainerInterface();
+        frame.setTitle("TrainerInterface V1.2");
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 800);
