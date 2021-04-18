@@ -8,6 +8,8 @@
  */
 import java.io.*;
 
+//this is a comment
+
 public class AllCourse{
 
     public static void main(String[] args) throws IOException{
